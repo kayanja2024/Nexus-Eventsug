@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Services | Nexus Events{% endblock %}
+{% block content %}
+<h1>Our Services</h1>
+<div class="grid">
+    {% for service in services %}
+        <div class="card">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.short_description }}</p>
+            <p>{{ service.full_description }}</p>
+            {% if service.featured_image %}
+            <img src="{{ service.featured_image.url }}" alt="{{ service.title }}">
+            {% endif %}
+        </div>
+        
+    {% empty %}
+        <p>No services added yet. Add services from Django Admin.</p>
+    {% endfor %}
+</div>
+{% endblock %}

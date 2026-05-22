@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Contact Us | Nexus Events{% endblock %}
+{% block content %}
+<div class="contact-info">
+<h1>Contact Us</h1>
+<p>Email: info@nexusevents.ug | Phone: +256 XXX XXX XXX</p>
+<p>Address: Kampala, Uganda</p>
+</div>
+<form class="form-info", method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send Message</button>
+</form>
+{% endblock %}

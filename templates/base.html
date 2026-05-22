@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Nexus Events{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f7f8fb; color: #1f2937; }
+        header { background: #111827; color: #fff; padding: 16px 24px; }
+        nav a { color: #fff; text-decoration: none; margin-right: 14px; }
+        main { max-width: 980px; margin: 24px auto; background: #fff; padding: 24px; border-radius: 8px; }
+        .btn { display: inline-block; padding: 10px 14px; background: #2563eb; color: #fff; border-radius: 6px; text-decoration: none; }
+        .grid { display: grid; gap: 12px; }
+        .card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px; }
+        .messages { margin-bottom: 16px; }
+        .message { background: #dcfce7; border: 1px solid #86efac; padding: 10px; border-radius: 6px; margin-bottom: 8px; }
+        input, textarea, select { width: 100%; padding: 10px; margin-top: 6px; margin-bottom: 12px; border: 1px solid #d1d5db; border-radius: 6px; }
+        label { font-weight: 600; }
+        button { padding: 10px 14px; border: 0; border-radius: 6px; background: #111827; color: #fff; cursor: pointer; }
+        footer { text-align: center; padding: 20px; color: #6b7280; }
+    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <header>
+        <h2>Nexus Events Ltd</h2>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/services/">Services</a>
+            <a href="/portfolio/">Portfolio</a>
+            <a href="/bookings/">Book Now</a>
+            <a href="/contact/">Contact</a>
+            <a href="/blog/">Blog</a>
+        </nav>
+    </header>
+    <main>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer>&copy; {% now "Y" %} Nexus Events Ltd</footer>
+</body>
+</html>

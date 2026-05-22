@@ -1,0 +1,122 @@
+
+.contact-info {
+  margin-bottom: 20px;
+  text-align: center;
+  background: #4877d6;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.contact-info h1 {
+    font-family: poppins, sans-serif;
+    font-weight: 800px;
+}
+
+.contact-info p {
+  /* add p styles if needed */
+  font-family: poppins, sans-serif;
+    font-weight: 800px;
+}
+
+.form-info {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f3efef;
+  border-radius: 8px;
+}
+
+button[type="submit"]:hover {
+  background-color: #4CAF50; /* change color */
+  color: #fff;
+  cursor: pointer;
+  
+}
+
+button[type="submit"] {
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+.booking-info {
+    margin-bottom: 20px;
+  text-align: center;
+  background: #4877d6;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.booking-form {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f3efef;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+
+/* Desktop Styles (1024px and above) */
+@media (min-width: 1024px) {
+  .contact-info, .booking-info {
+    padding: 30px;
+    font-size: 1.2em;
+  }
+
+  .form-info, .booking-form {
+    max-width: 800px;
+    padding: 30px;
+  }
+
+  .contact-info h1, .booking-info h1 {
+    font-size: 2.5em;
+  }
+}
+
+/* Tablet Styles (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contact-info, .booking-info {
+    padding: 25px;
+    font-size: 1.1em;
+  }
+
+  .form-info, .booking-form {
+    max-width: 600px;
+    padding: 25px;
+  }
+
+  .contact-info h1, .booking-info h1 {
+    font-size: 2.2em;
+  }
+}
+
+/* Mobile Styles (767px and below) */
+@media (max-width: 767px) {
+  .contact-info, .booking-info {
+    padding: 15px;
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+
+  .form-info, .booking-form {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .contact-info h1, .booking-info h1 {
+    font-size: 1.8em;
+  }
+
+  .contact-info p, .booking-info p {
+    font-size: 0.9em;
+  }
+}
