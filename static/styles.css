@@ -120,3 +120,25 @@ button[type="submit"] {
     font-size: 0.9em;
   }
 }
+
+/* Mobile input font-size fix to avoid iOS Safari zoom on focus */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Force form controls to at least 16px on small screens to prevent automatic zoom */
+@media (max-width: 767px) {
+  input, textarea, select, button, .btn {
+    font-size: 16px !important;
+    line-height: 1.2;
+  }
+}
+
+/* Prevent elastic overscroll / layout shifting on mobile browsers */
+html, body {
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+ 

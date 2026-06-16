@@ -121,3 +121,11 @@ DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'noreply@nexusevents.ug')
 BOOKINGS_NOTIFICATION_EMAIL = os.getenv('BOOKINGS_NOTIFICATION_EMAIL', DEFAULT_FROM_EMAIL)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# Fallback to console logging if production email credentials aren't set
+if not os.getenv('EMAIL_HOST_PASSWORD'):
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
