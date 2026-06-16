@@ -14,21 +14,21 @@
             <div class="header-inner">
                 <a href="/" class="site-logo">Nexus Events Ltd</a>
                 <nav class="site-nav" aria-label="Primary navigation">
-                    <a href="/">Home</a>
-                    <a href="/about/">About</a>
-                    <a href="/services/">Services</a>
-                    <a href="/portfolio/">Portfolio</a>
-                    <a href="/bookings/">Book Now</a>
-                    <a href="/contact/">Contact</a>
-                    <a href="/blog/">Blog</a>
+                    <a href="/" class="{% if request.path == '/' %}active{% endif %}" aria-current="{% if request.path == '/' %}page{% endif %}">Home</a>
+                    <a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}" aria-current="{% if request.path == '/about/' %}page{% endif %}">About</a>
+                    <a href="/services/" class="{% if request.path == '/services/' %}active{% endif %}" aria-current="{% if request.path == '/services/' %}page{% endif %}">Services</a>
+                    <a href="/portfolio/" class="{% if request.path == '/portfolio/' %}active{% endif %}" aria-current="{% if request.path == '/portfolio/' %}page{% endif %}">Portfolio</a>
+                    <a href="/bookings/" class="{% if request.path == '/bookings/' or request.path == '/bookings' %}active{% endif %}" aria-current="{% if request.path == '/bookings/' or request.path == '/bookings' %}page{% endif %}">Book Now</a>
+                    <a href="/contact/" class="{% if request.path == '/contact/' %}active{% endif %}" aria-current="{% if request.path == '/contact/' %}page{% endif %}">Contact</a>
+                    <a href="/blog/" class="{% if request.path == '/blog/' %}active{% endif %}" aria-current="{% if request.path == '/blog/' %}page{% endif %}">Blog</a>
                 </nav>
             </div>
         </header>
         <main class="site-main">
             {% if messages %}
-                <div class="messages">
+                <div class="messages" aria-live="polite">
                     {% for message in messages %}
-                        <div class="message">{{ message }}</div>
+                        <div class="message {{ message.tags }}">{{ message }}</div>
                     {% endfor %}
                 </div>
             {% endif %}

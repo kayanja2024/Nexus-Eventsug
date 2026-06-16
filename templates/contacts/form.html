@@ -2,13 +2,40 @@
 {% block title %}Contact Us | Nexus Events{% endblock %}
 {% block content %}
 <div class="contact-info">
-<h1>Contact Us</h1>
-<p>Email: info@nexusevents.ug | Phone: +256 XXX XXX XXX</p>
-<p>Address: Kampala, Uganda</p>
+    <h1>Contact Us</h1>
+    <p>Email: info@nexusevents.ug | Phone: +256 XXX XXX XXX</p>
+    <p>Address: Kampala, Uganda</p>
 </div>
-<form class="form-info", method="post">
+<form class="form-info" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div class="form-success">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
+    {% if form.non_field_errors %}
+        <div class="form-errors">
+            <ul>
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% for field in form %}
+        <div class="form-group{% if field.errors %} has-error{% endif %}">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+                <p class="field-help">{{ field.help_text }}</p>
+            {% endif %}
+            {% for error in field.errors %}
+                <p class="form-error">{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
     <button type="submit">Send Message</button>
 </form>
 {% endblock %}

@@ -1,4 +1,10 @@
+from django.core.validators import RegexValidator
 from django.db import models
+
+PHONE_VALIDATOR = RegexValidator(
+    regex=r'^[0-9+\-() ]{7,20}$',
+    message="Enter a valid phone number, for example +256 701 234 567.",
+)
 
 
 class Booking(models.Model):
@@ -12,7 +18,7 @@ class Booking(models.Model):
 
     full_name = models.CharField(max_length=150)
     email = models.EmailField()
-    phone = models.CharField(max_length=30)
+    phone = models.CharField(max_length=30, validators=[PHONE_VALIDATOR])
     event_type = models.CharField(max_length=100)
     event_date = models.DateField()
     location = models.CharField(max_length=150)

@@ -250,17 +250,133 @@ button,
   color: #fff;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 button:hover,
 .btn:hover {
   background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.site-nav a {
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f59e0b, #ec4899);
+  box-shadow: 0 0 14px rgba(236, 72, 153, 0.35);
+  transition: transform 0.25s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.site-nav a.active::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .grid {
   display: grid;
   gap: 18px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.form-error,
+.form-errors {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.form-error {
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.has-error .form-input {
+  border-color: #dc2626;
+}
+
+.has-error label {
+  color: #991b1b;
+}
+
+.field-help {
+  margin: 4px 0 10px;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.form-errors ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.message.success,
+.message.notice {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.12);
+}
+
+.form-success {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.08));
+  color: #065f46;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
+}
+
+.message.error,
+.message.warning {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #111827;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
 }
 
 .card {
