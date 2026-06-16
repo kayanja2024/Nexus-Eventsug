@@ -17,7 +17,15 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure--v6b5c8g_b(pkp
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
 # Allow your cloud platform's URL and localhost
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,.render.com').split(',')
+# ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,.render.com').split(',')
+
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '://onrender.com',  # Your exact live Render domain
+    '.onrender.com',                # Wildcard to catch any Render subdomain variations
+]
+
 
 # Application definition
 INSTALLED_APPS = [
