@@ -23,11 +23,13 @@ class BookingForm(forms.ModelForm):
         validators=[PHONE_VALIDATOR],
         widget=forms.TextInput(
             attrs={
+                "type": "tel",
                 "placeholder": "0701234567",
                 "autocomplete": "tel",
                 "inputmode": "numeric",
                 "pattern": "[0-9]*",
                 "title": "Numbers only",
+                "oninput": "this.value=this.value.replace(/[^0-9]/g, '')",
             }
         ),
     )
